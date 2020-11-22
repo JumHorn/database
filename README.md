@@ -11,6 +11,8 @@
 
 ## MongoDB
 
+## sqlite
+
 # 数据库连接池设计
 
 ## redis连接池
