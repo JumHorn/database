@@ -1,5 +1,8 @@
 # client for different database
 
+> https://www.sqlapi.com
+> https://github.com/SOCI/soci
+
 ## Redis
 
 1. hiredis
