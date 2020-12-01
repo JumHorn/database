@@ -4,6 +4,8 @@
 CREATE user 'username'@'%' identified by 'passwd'; --create user
 
 GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost'; --grant privileges
+
+grant select,delete,update,create,drop on databasename.* to 'username'@'%' identified by "passwd";
 ```
 
 ## localhost can not login %
@@ -104,7 +106,12 @@ set session transaction isolation level read uncommitted;
 ```
 
 # 设置索引
+1. 主键索引(primary key)
+2. 唯一索引(unique)
+3. 普通索引(index)
+4. 全文索引(fulltext)
 
+# 分片sharding
 
 # 存储引擎
 
