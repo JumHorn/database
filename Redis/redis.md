@@ -1,3 +1,8 @@
+# redis使用
+1. 删除key
+del key_name
+2.
+
 # redis运行机制
 
 从源码分析redis是怎样运行的

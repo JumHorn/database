@@ -37,27 +37,32 @@ mysqldump -u root -p database_name > database_name.sql
 
 3.
 
-# show columns from table
+# operation with columns
 
-1.
+1. show column
 ```SQL
 SHOW COLUMNS FROM tablename;
 ```
-2.
+2. show column
 ```SQL
 DESCRIBE tablename;
+```
+3. 修改字段
+```SQL
+alter table tablename change column_name new_column_name column_property
+```
+4. 插入字段
+```SQL
+alter table tablename add column column_name text after exist_column_name;
+```
+5. 删除字段
+```SQL
+ALTER TABLE table_name DROP COLUMN column_name;
 ```
 
 # show table schema
 ```SQL
 show create table tablename
-```
-
-# alter
-
-1. 修改字段
-```SQL
-alter table tablename change column_name new_column_name
 ```
 
 # 创建临时表
@@ -88,8 +93,22 @@ DELIMITER ; --restore defualt delimiter
 ```
 
 # 触发器
+mysql中old表示执行前的数据,new表示执行后的数据
 ```SQL
 create trigger triggername (before/after) delete on tablename
+```
+```SQL
+-- example
+CREATE TRIGGER `user_trigger` BEFORE UPDATE ON `user`
+FOR EACH ROW SET NEW.`update_time` = NOW()
+```
+查看触发器
+```SQL
+show triggers in tablename;
+```
+查看触发器schema
+```SQL
+show create trigger triggername;
 ```
 
 # 事务隔离级别设置
