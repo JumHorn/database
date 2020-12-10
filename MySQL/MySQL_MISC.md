@@ -33,3 +33,8 @@ ALTER TABLE tbl_name CONVERT TO CHARACTER SET charset_name;
 SELECT TABLE_NAME,DATA_LENGTH+INDEX_LENGTH,TABLE_ROWS,concat(round((DATA_LENGTH+INDEX_LENGTH)/1024/1024,2), 'MB') as data
 FROM information_schema.tables WHERE TABLE_SCHEMA='databasename' ORDER BY DATA_LENGTH+INDEX_LENGTH desc;
 ```
+
+# 查看数据库文件存储位置
+```SQL
+select @@datadir;
+```
