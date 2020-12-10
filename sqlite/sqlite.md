@@ -3,7 +3,7 @@
 > https://www.sqlite.org/quickstart.html
 > https://www.sqlitetutorial.net
 
-# connect to mysql
+# connect to sqlite3
 ```SQL
 sqlite3 database_name;
 ```
@@ -39,4 +39,22 @@ WHERE name = 'tablename';
 # show table schema
 ```SQL
 .schema table_name
+```
+
+# add column(can not remove column)
+```SQL
+ALTER TABLE table_name
+ADD COLUMN column_definition;
+```
+
+# new table to replace the old one
+```SQL
+insert into newtable(column1,column2) select column1,column2 from oldtable;
+drop table if exists oldtable;
+alter table newtable rename to oldtable;
+```
+
+# timestamp
+```SQL
+CREATE TABLE IF NOT EXISTS "cryptokeys"(private text,public text,time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 ```
