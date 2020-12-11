@@ -54,6 +54,12 @@ slaveof 81.69.226.177 6379
 
 2. 实现原理
 
+### FAQ
+1. 主机设置密码
+
+从机添加配置 \
+masterauth passwd
+
 
 ## sentinel(哨兵模式)
 

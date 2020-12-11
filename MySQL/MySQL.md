@@ -161,3 +161,31 @@ SELECT ledgerAmount FROM accDetails WHERE id = 1 FOR UPDATE;
 ```SQL
 SHOW ENGINE INNODB STATUS
 ```
+
+# 主从模式Replication
+> https://dev.mysql.com/doc/refman/8.0/en/replication-configuration.html
+
+2. 配置文件中指定
+```ini
+replicate-do-db=db_name
+server-id=101
+log-bin=mysql-bin
+```
+
+2. 主机查看bin-log
+```SQL
+show master status
+```
+
+3. 从机设置slave
+```SQL
+-- the last two was from server master status
+change master to master_host='serverip',master_port=3306,master_user='username',master_password='password',master_log_file='mysql-bin.000001',master_log_pos=1336;
+```
+```SQL
+start slave
+show slave status
+```
+
+## The user specified as a definer
+从机本地也要创建相同的用户名
