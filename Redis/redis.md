@@ -62,5 +62,9 @@ masterauth passwd
 
 
 ## sentinel(哨兵模式)
+1. 新增sentinel.conf配置文件
+
+**启动多个sentinel一起监控master** \
+当master挂掉,sentinel重新选主
 
 ## cluster(集群模式)
