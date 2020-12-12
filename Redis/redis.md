@@ -68,3 +68,16 @@ masterauth passwd
 当master挂掉,sentinel重新选主
 
 ## cluster(集群模式)
+1. 每台redis新增配置
+```config
+cluster-enabled yes
+```
+2. client初始化集群
+```shell
+redis-cli --cluster create ip:port ip:port ip:port ip:port ip:port ip:port --cluster-replicas 1
+```
+3. client使用集群
+```shell
+# -c enable cluster mode
+redis-cli -h ip -p port -c
+```
