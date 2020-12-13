@@ -81,3 +81,10 @@ redis-cli --cluster create ip:port ip:port ip:port ip:port ip:port ip:port --clu
 # -c enable cluster mode
 redis-cli -h ip -p port -c
 ```
+
+### 问题
+1. Node is not empty
+
+删除已经生成的node_conf文件
+
+2. 集群切换需要一定时间
