@@ -19,23 +19,37 @@ delete from mysql.user where user='' and host='localhost'
 ```
 
 # connect to mysql
-```SQL
-mysql -u username -h host -p;
+```shell
+mysql -u username -h host -p
 ```
 
 # data import and export
 
 1. import data
-
-* mysql -u root -p < file.sql
-
-* source file.sql
+```shell
+# method 1
+mysql -u root -p < file.sql
+# method 2
+source file.sql
+```
 
 2. export data
-
+```shell
+# export whole database
 mysqldump -u root -p database_name > database_name.sql
+# export single table without data
+mysqldump -u root -p --no-data database_name tablename > table.sql
+```
 
-3.
+# operation with table
+1. show table schema
+```SQL
+show create table tablename
+```
+2. 修改表名
+```SQL
+rename table table_name to new_table_name;
+```
 
 # operation with columns
 
@@ -58,11 +72,6 @@ alter table tablename add column column_name text after exist_column_name;
 5. 删除字段
 ```SQL
 ALTER TABLE table_name DROP COLUMN column_name;
-```
-
-# show table schema
-```SQL
-show create table tablename
 ```
 
 # 创建临时表
@@ -104,7 +113,7 @@ FOR EACH ROW SET NEW.`update_time` = NOW()
 ```
 查看触发器
 ```SQL
-show triggers in tablename;
+show triggers in database_name;
 ```
 查看触发器schema
 ```SQL
