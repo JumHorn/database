@@ -41,5 +41,13 @@ select @@datadir;
 
 # 重新连接服务器
 ```shell
+# 断线重连，要等待一些时间
 mysql -u user_name -h hostname -p --reconnect
+
+# 命令直接指定重连
+mysql> connect
 ```
+
+# 资源
+## mysql client commands
+> https://dev.mysql.com/doc/refman/8.0/en/mysql-commands.html

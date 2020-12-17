@@ -31,3 +31,12 @@ datadir = /var/lib/mysq
 1. 首先连接命令行指定的客户端
 2. 发送命令后,由服务端返回move命令,并提供服务器地址
 3. 关闭当前连接,开启新的连接到服务器(issueCommandRepeat函数)
+
+# redis-cli重新连接
+```shell
+connect ip port
+```
+
+# 资源
+## rediscli
+> https://redis.io/topics/rediscli
