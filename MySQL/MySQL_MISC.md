@@ -38,3 +38,8 @@ FROM information_schema.tables WHERE TABLE_SCHEMA='databasename' ORDER BY DATA_L
 ```SQL
 select @@datadir;
 ```
+
+# 重新连接服务器
+```shell
+mysql -u user_name -h hostname -p --reconnect
+```
