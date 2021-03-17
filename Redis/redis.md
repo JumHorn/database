@@ -1,7 +1,8 @@
 # redis使用
 1. 删除key
 del key_name
-2.
+
+# redis IO分析
 
 # redis运行机制
 

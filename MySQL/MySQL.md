@@ -134,10 +134,31 @@ set session transaction isolation level read uncommitted;
 ```
 
 # 设置索引
-1. 主键索引(primary key)
-2. 唯一索引(unique)
-3. 普通索引(index)
-4. 全文索引(fulltext)
+1. 普通索引(index)
+```SQL
+-- 创建索引
+CREATE INDEX indexName ON mytable(username(length));
+-- 修改表结构
+ALTER mytable ADD INDEX [indexName] ON (username(length))
+-- 创建表的时候直接指定
+CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL, INDEX [indexName] (username(length)));
+-- 删除索引
+DROP INDEX [indexName] ON mytable;
+```
+2. 主键索引(primary key)
+```SQL
+-- 特殊的主键唯一性作为索引
+CREATE TABLE mytable( ID INT NOT NULL, username VARCHAR(16) NOT NULL, PRIMARY KEY(ID));
+```
+3. 唯一索引(unique)
+```SQL
+CREATE UNIQUE INDEX indexName ON mytable(username(length))
+ALTER mytable ADD UNIQUE [indexName] ON (username(length))
+```
+4. 组合索引
+```SQL
+ALTER TABLE mytable ADD INDEX name_city_age (name(10),city,age);
+```
 
 # 分片sharding
 
