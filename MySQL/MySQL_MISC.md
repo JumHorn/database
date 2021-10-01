@@ -46,6 +46,8 @@ mysql -u user_name -h hostname -p --reconnect
 
 # 命令直接指定重连
 mysql> connect
+# 或者
+mysql> \r
 ```
 
 # 资源

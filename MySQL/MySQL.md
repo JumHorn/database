@@ -3,7 +3,7 @@
 ```SQL
 CREATE user 'username'@'%' identified by 'passwd'; --create user
 
-GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost'; --grant privileges
+GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'%'; --grant privileges
 
 grant select,delete,update,create,drop on databasename.* to 'username'@'%' identified by "passwd";
 ```
@@ -30,7 +30,7 @@ mysql -u username -h host -p
 # method 1
 mysql -u root -p < file.sql
 # method 2
-source file.sql
+mysql> source file.sql
 ```
 
 2. export data
