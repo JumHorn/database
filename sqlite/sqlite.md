@@ -57,4 +57,23 @@ alter table newtable rename to oldtable;
 # timestamp
 ```SQL
 CREATE TABLE IF NOT EXISTS "cryptokeys"(private text,public text,time TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
+-- Sqlite: CURRENT_TIMESTAMP is in GMT, not the timezone of the machine
+-- solution function
+CREATE TABLE IF NOT EXISTS "cryptokeys"(private text,public text,time TIMESTAMP DEFAULT (datetime('now','localtime')));
+
+
+-- solution triggers(not used)
+--Create before update and after insert triggers:
+CREATE TRIGGER UPDATE_cryptokeys BEFORE UPDATE ON cryptokeys
+    BEGIN
+       UPDATE cryptokeys SET time = datetime('now', 'localtime')
+       WHERE rowid = new.rowid;
+    END
+
+CREATE TRIGGER INSERT_cryptokeys AFTER INSERT ON cryptokeys
+    BEGIN
+       UPDATE cryptokeys SET time = datetime('now', 'localtime')
+       WHERE rowid = new.rowid;
+    END
 ```
