@@ -28,8 +28,9 @@ mysql -u username -h host -p
 1. import data
 ```shell
 # method 1
-mysql -u root -p < file.sql
-# method 2
+mysql -u root -p database_name < file.sql --default-character-set=utf8
+# method 2 针对乱码有效
+mysql> set names utf8;
 mysql> source file.sql
 ```
 
