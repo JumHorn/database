@@ -41,7 +41,13 @@ WHERE name = 'tablename';
 .schema table_name
 ```
 
-# add column(can not remove column)
+# ALTER TABLE
+1. rename table
+```SQL
+ALTER TABLE existing_table
+RENAME TO new_table;
+```
+2. add column(can not remove column)
 ```SQL
 ALTER TABLE table_name
 ADD COLUMN column_definition;
