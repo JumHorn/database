@@ -17,9 +17,9 @@ sqlite> .read file.sql
 
 2. export data
 ```shell
-sqlite> .output c:/sqlite/chinook.sql
-sqlite> .dump
-sqlite> .exit
+sqlite> .output ~/sqlite/chinook.sql #set output file
+sqlite> .dump [tablename] # without table name all database will be dumped
+sqlite> .q
 ```
 
 # show columns from table
