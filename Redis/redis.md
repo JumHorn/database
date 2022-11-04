@@ -1,12 +1,8 @@
-# redis使用
-1. 删除key
-del key_name
-
 # redis IO分析
 
 # redis运行机制
 
-从源码分析redis是怎样运行的
+	从源码分析redis是怎样运行的
 
 ## 初始化全局变量
 1. 初始化redisServer结构体
@@ -29,7 +25,7 @@ client->cmd->proc=lookupCommand()
 
 ## client请求处理流程
 
-client和connection一一对应，每进来一个conn就创建一个client
+	client和connection一一对应，每进来一个conn就创建一个client
 
 1. 先调用connection注册的connSocketEventHandler
 2. 在这个handler中调用callhandler对读写事件分别处理
@@ -42,13 +38,14 @@ client和connection一一对应，每进来一个conn就创建一个client
 
 # redis cluster
 
-redis集群实现方式
+	redis集群实现方式
 
 ## master-slave(主从复制)
 
 1. 搭建方法
-从机配置文件中添加
-```
+
+	从机配置文件中添加
+```redis
 slaveof master_ip master_port
 slaveof 81.69.226.177 6379
 ```
@@ -58,15 +55,21 @@ slaveof 81.69.226.177 6379
 ### FAQ
 1. 主机设置密码
 
-从机添加配置 \
+	从机添加配置
+```config
 masterauth passwd
+```
+	从机命令行添加
+```config
+config set masterauth master-password
+```
 
 
 ## sentinel(哨兵模式)
 1. 新增sentinel.conf配置文件
 
-**启动多个sentinel一起监控master** \
-当master挂掉,sentinel重新选主
+	**启动多个sentinel一起监控master**
+	当master挂掉,sentinel重新选主
 
 ## cluster(集群模式)
 1. 每台redis新增配置
@@ -86,6 +89,6 @@ redis-cli -h ip -p port -c
 ### 问题
 1. Node is not empty
 
-删除已经生成的node_conf文件
+	删除已经生成的node_conf文件
 
 2. 集群切换需要一定时间

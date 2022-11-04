@@ -24,7 +24,7 @@ config get dir
 sudo rsync -av /var/lib/mysql /path/to/new/dir
 ```
 ```ini
-datadir = /var/lib/mysq
+datadir = /var/lib/mysql
 ```
 
 # redis-cli连接集群服务器过程分析
@@ -37,10 +37,7 @@ datadir = /var/lib/mysq
 connect ip port
 ```
 
-# 资源
-## rediscli
-> https://redis.io/topics/rediscli
-
+# 技巧
 ## 命令行长输入
 ```shell
 # 从文件输入
@@ -48,3 +45,19 @@ redis-cli -x set key < filename
 # 从stdin输入,ctr-d结束输入
 redis-cli -x set key
 ```
+
+## 数据复制
+
+	由于redislabs提供的免费数据库不支持replica命令，
+	所以使用代码方式将数据复制过去
+	代码文件[copy redis](copyredis.py)
+
+
+# 资源
+1. [rediscli](https://redis.io/topics/rediscli)
+
+	命令行知识
+
+2. [redislabs](https://app.redislabs.com)
+
+	免费redis 30M
