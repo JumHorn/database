@@ -40,3 +40,11 @@ connect ip port
 # 资源
 ## rediscli
 > https://redis.io/topics/rediscli
+
+## 命令行长输入
+```shell
+# 从文件输入
+redis-cli -x set key < filename
+# 从stdin输入,ctr-d结束输入
+redis-cli -x set key
+```
