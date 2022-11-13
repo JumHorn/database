@@ -64,3 +64,13 @@ db.collectionName.find()
 ```
 
 # 条件查找
+
+# 索引
+  
+  创建索引，提高查找效率
+```shell
+# 1表示升序 -1表示降序
+db.user.createIndex({"name":1})
+# 后台创建索引
+db.user.createIndex({open: 1, close: 1}, {background: true})
+```
