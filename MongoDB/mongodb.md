@@ -61,6 +61,8 @@ db.user.updateOne({"name":"yasuo"},{$set:{"name":"zed"}},{multi:true})
 4. find
 ```shell
 db.collectionName.find()
+# 正则表达式方式查找
+db.collectionName.find({"text":{$regex:/dragon/}})
 ```
 
 # 条件查找
